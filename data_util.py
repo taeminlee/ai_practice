@@ -4,7 +4,7 @@ import pandas as pd  # 데이터 읽기에 사용하는 라이브러리
 data = pd.read_csv('dataset/sample_mmse.csv')
 
 # 데이터 집합 중, 설문조사 항목을 입력 데이터로 활용
-X = data.loc[:, data.columns[6:]]
+X = data.loc[:, data.columns[6:-1]]
 # 데이터 집합 중, 진단명을 결과 데이터로 활용
 Y = data.loc[:, data.columns[2]]
 
