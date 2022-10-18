@@ -51,6 +51,8 @@ def get_feature_importance_table(model: tree.DecisionTreeClassifier):
     """
     # 학습이 끝난 결정 트리에서 feature 중요도 정보 획득
     feat_importances = pd.DataFrame(model.feature_importances_, index=model.feature_names_in_, columns=["Importance"])
+    # 중요도 순으로 정렬
+    feat_importances.sort_values(by='Importance', ascending=False, inplace=True)
     # 질문 항목에 설명 붙임
     feat_importances['desc'] = feat_importances.index.map(lambda x: Q_dict[x])
     return feat_importances
